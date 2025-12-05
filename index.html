@@ -1,494 +1,707 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOMENICO'S CIGARS – Saigon</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --cream: #FAF6EF;
-            --gold: #8F8A7A;
-            --dark: #2E241E;
-        }
+  <meta charset="UTF-8" />
+  <title>Domenico's Cigars</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Domenico's Cigars – Boutique Cigar Lounge in Saigon. A curated selection of fine cigars, spirits and quiet luxury." />
 
-        * {
-            box-sizing: border-box;
-        }
+  <!-- Minimal Google Fonts – kannst du später anpassen -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-        html {
-            scroll-behavior: smooth;
-        }
+  <style>
+    :root {
+      --bg: #050608;
+      --bg-alt: #111218;
+      --accent: #d1b27c;
+      --accent-soft: rgba(209, 178, 124, 0.15);
+      --text-main: #f5f0e8;
+      --text-muted: #a7a3a0;
+      --border-subtle: rgba(255,255,255,0.06);
+      --max-width: 1100px;
+      --header-height: 64px;
+    }
 
-        body {
-            margin: 0;
-            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background-color: var(--cream);
-            color: var(--dark);
-            line-height: 1.6;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
 
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: var(--cream);
-            border-bottom: 1px solid rgba(143, 138, 122, 0.4);
-        }
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
 
-        .nav {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 2rem;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        .logo {
-            font-family: 'EB Garamond', serif;
-            font-size: 1.2rem;
-            letter-spacing: 0.2rem;
-            color: var(--gold);
-        }
+    /* Layout */
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 1.2rem;
-            margin: 0;
-            padding: 0;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08rem;
-        }
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-        nav a {
-            padding-bottom: 0.2rem;
-            border-bottom: 1px solid transparent;
-        }
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 16px;
+    }
 
-        nav a:hover,
-        nav a:focus {
-            border-color: var(--gold);
-        }
+    /* Header / Nav */
 
-        main {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem 4rem;
-        }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: linear-gradient(to bottom, rgba(5,6,8,0.98), rgba(5,6,8,0.92));
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      height: var(--header-height);
+      display: flex;
+      align-items: center;
+    }
 
-        section {
-            padding: 4rem 0;
-        }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
 
-        h1, h2, h3 {
-            font-family: 'EB Garamond', serif;
-            margin-top: 0;
-            color: var(--dark);
-        }
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
 
-        h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-        }
+    .brand-title {
+      font-family: "Playfair Display", serif;
+      font-size: 18px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
 
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
+    .brand-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+    }
 
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 1.5rem;
-        }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
 
-        .hero p {
-            max-width: 600px;
-            font-size: 1.1rem;
-        }
+    .nav a {
+      padding: 6px 8px;
+      border-radius: 999px;
+      color: var(--text-muted);
+      border: 1px solid transparent;
+      transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+      white-space: nowrap;
+    }
 
-        .primary-button {
-            display: inline-block;
-            padding: 0.85rem 2rem;
-            border: 1px solid var(--gold);
-            color: var(--dark);
-            text-transform: uppercase;
-            letter-spacing: 0.1rem;
-            font-size: 0.95rem;
-            background: transparent;
-            transition: background 0.3s ease;
-        }
+    .nav a:hover,
+    .nav a:focus-visible {
+      color: var(--text-main);
+      background-color: rgba(255,255,255,0.03);
+      border-color: var(--border-subtle);
+    }
 
-        .primary-button:hover,
-        .primary-button:focus {
-            background: rgba(143, 138, 122, 0.15);
-        }
+    .nav a.active {
+      color: var(--text-main);
+      border-color: var(--accent);
+      background-color: var(--accent-soft);
+    }
 
-        .about-content {
-            display: grid;
-            gap: 1.5rem;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            align-items: start;
-        }
+    /* Mobile Nav */
 
-        .about-values {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+    .nav-toggle {
+      display: none;
+      border: 1px solid var(--border-subtle);
+      background: rgba(10,10,12,0.9);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+    }
 
-        .about-values li {
-            padding: 0.4rem 0;
-            border-bottom: 1px solid rgba(143, 138, 122, 0.4);
-            font-weight: 500;
-        }
+    .nav-toggle span {
+      margin-left: 6px;
+      font-size: 14px;
+    }
 
-        .cards {
-            display: grid;
-            gap: 1.5rem;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-        }
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      padding: 10px 0 12px;
+      border-bottom: 1px solid var(--border-subtle);
+      background: linear-gradient(to bottom, rgba(5,6,8,0.98), rgba(5,6,8,0.95));
+    }
 
-        .card {
-            border: 1px solid rgba(143, 138, 122, 0.4);
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.4);
-        }
+    .nav-mobile a {
+      padding: 10px 4px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      border-radius: 6px;
+    }
 
-        .card h3 {
-            margin-bottom: 0.6rem;
-            font-size: 1.2rem;
-        }
+    .nav-mobile a.active {
+      color: var(--text-main);
+      background-color: var(--accent-soft);
+      border: 1px solid var(--accent);
+    }
 
-        .card span {
-            display: block;
-            font-size: 0.9rem;
-            color: var(--gold);
-            margin-bottom: 0.4rem;
-        }
+    /* Hero / Sections */
 
-        .card p {
-            margin: 0.4rem 0 0;
-        }
+    main {
+      flex: 1;
+    }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.95rem;
-        }
+    section {
+      scroll-margin-top: calc(var(--header-height) + 16px);
+      padding: 56px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
 
-        th, td {
-            padding: 0.75rem;
-            text-align: left;
-            border-bottom: 1px solid rgba(143, 138, 122, 0.3);
-        }
+    #hero {
+      padding-top: 72px;
+      padding-bottom: 80px;
+      background: radial-gradient(circle at top, rgba(209,178,124,0.14), transparent 60%);
+    }
 
-        th {
-            font-family: 'EB Garamond', serif;
-            font-weight: 500;
-            letter-spacing: 0.05rem;
-        }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr);
+      gap: 32px;
+    }
 
-        .lounge-text p {
-            margin: 0;
-            padding: 1.2rem 0;
-            border-bottom: 1px solid rgba(143, 138, 122, 0.4);
-        }
+    .hero-kicker {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
 
-        .lounge-text p:last-child {
-            border-bottom: none;
-        }
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(32px, 7vw, 44px);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
 
-        .events {
-            display: grid;
-            gap: 1.3rem;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        }
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 460px;
+      margin-bottom: 24px;
+    }
 
-        .event-card {
-            border: 1px solid rgba(143, 138, 122, 0.4);
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.4);
-        }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
 
-        .event-card h3 {
-            margin-bottom: 0.2rem;
-        }
+    .pill {
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      padding: 6px 10px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+    }
 
-        .event-card small {
-            letter-spacing: 0.1rem;
-            text-transform: uppercase;
-            color: var(--gold);
-        }
+    /* Generic Section Styles */
 
-        .ghost-button {
-            margin-top: 1rem;
-            display: inline-block;
-            padding: 0.6rem 1.4rem;
-            border: 1px solid rgba(143, 138, 122, 0.6);
-            font-size: 0.85rem;
-            letter-spacing: 0.08rem;
-        }
+    .section-header {
+      margin-bottom: 24px;
+    }
 
-        .contact-grid {
-            display: grid;
-            gap: 2rem;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        }
+    .section-kicker {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
 
-        form {
-            display: grid;
-            gap: 1rem;
-        }
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
 
-        label {
-            font-size: 0.85rem;
-            letter-spacing: 0.05rem;
-            text-transform: uppercase;
-        }
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      max-width: 480px;
+    }
 
-        input, textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid rgba(143, 138, 122, 0.5);
-            background: transparent;
-            font-family: inherit;
-        }
+    .columns {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+      gap: 24px;
+      align-items: flex-start;
+    }
 
-        textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
+    .card {
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      background: linear-gradient(to bottom right, rgba(255,255,255,0.03), rgba(5,6,8,0.94));
+      padding: 16px 16px 14px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
 
-        .note {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            color: rgba(46, 36, 30, 0.9);
-        }
+    .card-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
 
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(143, 138, 122, 0.4);
-            margin-top: 2rem;
-        }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
 
-        @media (max-width: 700px) {
-            .nav {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
+    /* Lists / simple table-like layout */
 
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+    .list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13px;
+    }
 
-            main {
-                padding: 0 1.2rem 3rem;
-            }
+    .list-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 6px 0;
+      border-bottom: 1px dashed var(--border-subtle);
+    }
 
-            section {
-                padding: 3rem 0;
-            }
-        }
-    </style>
+    .list-label {
+      color: var(--text-main);
+    }
+
+    .list-meta {
+      color: var(--text-muted);
+      font-size: 12px;
+      text-align: right;
+    }
+
+    /* Contact / Footer */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 24px;
+    }
+
+    .contact-block {
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      padding: 16px 16px 14px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .contact-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .contact-value {
+      font-size: 13px;
+      color: var(--text-main);
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      padding: 8px 12px;
+      font-size: 12px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background-color: var(--accent-soft);
+      color: var(--text-main);
+    }
+
+    .contact-link span {
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 18px 0 28px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    footer .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 12px;
+      margin-top: 16px;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 768px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .columns {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .section-header {
+        margin-bottom: 18px;
+      }
+
+      section {
+        padding: 44px 0;
+      }
+
+      #hero {
+        padding-top: 64px;
+        padding-bottom: 64px;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .nav-mobile {
+        display: none !important;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="nav">
-            <div class="logo">DOMENICO’S CIGARS</div>
-            <nav>
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#signature-cigars">Signature</a></li>
-                    <li><a href="#full-selection">Selection</a></li>
-                    <li><a href="#lounge">The Lounge</a></li>
-                    <li><a href="#events">Events</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+  <div class="page">
+    <!-- Header -->
+    <header class="header">
+      <div class="container header-inner">
+        <div class="brand">
+          <div class="brand-title">Domenico’s Cigars</div>
+          <div class="brand-sub">Saigon Cigars & Lounge</div>
         </div>
+        <nav class="nav" aria-label="Main">
+          <a href="#hero">Home</a>
+          <a href="#about">About</a>
+          <a href="#cigars">Cigars</a>
+          <a href="#lounge">Lounge</a>
+          <a href="#events">Events</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+          Menu <span>☰</span>
+        </button>
+      </div>
     </header>
+
+    <!-- Mobile Nav -->
+    <nav class="nav-mobile" aria-label="Mobile navigation">
+      <div class="container">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#cigars">Cigars</a>
+        <a href="#lounge">Lounge</a>
+        <a href="#events">Events</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
     <main>
-        <section id="hero" class="hero">
-            <div class="logo" aria-hidden="true">DOMENICO’S</div>
-            <h1>Domenico’s Cigars – Saigon</h1>
-            <p>An intimate cigar lounge in the heart of Ho Chi Minh City: thirty seats, quiet conversation, and an owner’s collection of cigars resting behind bespoke humidor walls.</p>
-            <a class="primary-button" href="#about">Enter the Lounge</a>
-        </section>
-
-        <section id="about">
-            <h2>About the Vision</h2>
-            <div class="about-content">
-                <p>A space conceived for unhurried evenings: quartz stone bar, humidor cabinets acting as room dividers, and attentive hosts who guide guests through rare vitolas. Every detail—from glassware to the Zuriga espresso ritual—is curated for calm.</p>
-                <ul class="about-values">
-                    <li>Curated selection</li>
-                    <li>Quiet atmosphere</li>
-                    <li>Attentive service</li>
-                    <li>Saigon roots</li>
-                </ul>
+      <!-- Hero -->
+      <section id="hero">
+        <div class="container hero-inner">
+          <div>
+            <div class="hero-kicker">Boutique Cigar Experience</div>
+            <h1 class="hero-title">
+              A quiet corner of Saigon for people who still enjoy slow moments.
+            </h1>
+            <p class="hero-subtitle">
+              Domenico’s Cigars wird eine kuratierte Zigarrenlounge im Herzen von Saigon – mit Fokus auf ruhige Abende, ehrliche Gespräche und eine kompakte, gut ausgewählte Cigar Selection.
+            </p>
+            <div class="hero-meta">
+              <span class="pill">Opening &mdash; Coming Soon</span>
+              <span class="pill">District 1 / HCMC</span>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <section id="signature-cigars">
-            <h2>Owner’s Signature Cigars</h2>
-            <div class="cards">
-                <article class="card">
-                    <h3>Vegueros</h3>
-                    <span>Pinar del Río · Petit Corona</span>
-                    <p>Fresh-cut hay, toasted almond, and a clean Cuban finish ideal for a contemplative half hour.</p>
-                </article>
-                <article class="card">
-                    <h3>Drew Estate Nasty Fritas</h3>
-                    <span>Nicaragua · Cone-shaped Short Robusto</span>
-                    <p>Broadleaf intensity with cacao, chicory, and a smoky sweetness crafted for slow jazz evenings.</p>
-                </article>
-                <article class="card">
-                    <h3>Papas Fritas</h3>
-                    <span>Nicaragua · Short Corona</span>
-                    <p>Dense, earthy draw with espresso crema notes, perfect for pairing with a double ristretto.</p>
-                </article>
-                <article class="card">
-                    <h3>José L. Piedra Cazadores</h3>
-                    <span>Cuba · Cazadores</span>
-                    <p>Rustic yet elegant, delivering cedar, leather, and a nostalgic Havana sweetness.</p>
-                </article>
+      <!-- About -->
+      <section id="about">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">About</div>
+            <h2 class="section-title">The idea behind Domenico’s Cigars</h2>
+            <p class="section-subtitle">
+              Kurze Story über dich, deinen Weg von der Schweiz nach Vietnam und warum diese Lounge mehr Lebensprojekt als Business ist.
+            </p>
+          </div>
+          <div class="columns">
+            <div class="card">
+              <div class="card-title">A personal project</div>
+              <p>
+                Hier kannst du später 2–3 kurze Absätze einsetzen: Deine Motivation, dein Fokus auf Qualität statt Masse und warum DC bewusst keine überladene Restaurant-Bar ist.
+              </p>
             </div>
-        </section>
-
-        <section id="full-selection">
-            <h2>Full Selection Preview</h2>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Origin</th>
-                            <th>Strength</th>
-                            <th>Format</th>
-                            <th>Estimated Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>H. Upmann Magnum 46</td>
-                            <td>Cuba</td>
-                            <td>Medium</td>
-                            <td>Corona Gorda</td>
-                            <td>60 mins</td>
-                        </tr>
-                        <tr>
-                            <td>Arturo Fuente Don Carlos</td>
-                            <td>Dominican Republic</td>
-                            <td>Medium-Full</td>
-                            <td>Robusto</td>
-                            <td>55 mins</td>
-                        </tr>
-                        <tr>
-                            <td>Oliva Serie V Melanio</td>
-                            <td>Nicaragua</td>
-                            <td>Full</td>
-                            <td>Figurado</td>
-                            <td>75 mins</td>
-                        </tr>
-                        <tr>
-                            <td>Davidoff Signature 2000</td>
-                            <td>Dominican Republic</td>
-                            <td>Mild</td>
-                            <td>Petit Corona</td>
-                            <td>35 mins</td>
-                        </tr>
-                        <tr>
-                            <td>La Flor Dominicana Andalusian Bull</td>
-                            <td>Dominican Republic</td>
-                            <td>Full</td>
-                            <td>Figurado</td>
-                            <td>90 mins</td>
-                        </tr>
-                        <tr>
-                            <td>Rocky Patel Vintage 1999</td>
-                            <td>Honduras</td>
-                            <td>Mild-Medium</td>
-                            <td>Churchill</td>
-                            <td>70 mins</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="card">
+              <div class="card-title">Philosophy</div>
+              <p>
+                Stichworte: Ruhe, respektvolle Lautstärke, Fokus auf Zigarren, ehrlicher Service, keine Show-Off-Kultur. Dieser Text darf sehr knapp und präzise sein.
+              </p>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <section id="lounge">
-            <h2>The Lounge Experience</h2>
-            <div class="lounge-text">
-                <p>Quartz bar surfaces anchor the room, with vintage brass foot rails and discreet underlighting for a soft glow.</p>
-                <p>Lounge chairs in rich leather pair with low tables, framed by floor-to-ceiling humidor cabinets that define intimate corners.</p>
-                <p>Warm light cascades through linen shades while a curated analog audio setup provides gentle vinyl textures.</p>
-                <p>A Zuriga espresso corner and small-batch tea service offer refined pairings for every draw.</p>
-            </div>
-        </section>
+      <!-- Cigars -->
+      <section id="cigars">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Cigars</div>
+            <h2 class="section-title">Signature & curated selection</h2>
+            <p class="section-subtitle">
+              Hier kannst du später deine Signature Auswahl und eine Übersicht deiner Karte integrieren, ohne zu überladen.
+            </p>
+          </div>
 
-        <section id="events">
-            <h2>Events & Evenings</h2>
-            <div class="events">
-                <article class="event-card">
-                    <h3>Havana Night</h3>
-                    <small>Next date announced privately</small>
-                    <p>Cuban boleros, a guided tasting of H. Upmann and Bolivar vitolas, and light canapés inspired by Malecón evenings.</p>
-                    <a class="ghost-button" href="mailto:contact@domenicoscigars.com">Request details</a>
-                </article>
-                <article class="event-card">
-                    <h3>Whisky & Smoke</h3>
-                    <small>Monthly · Invitation only</small>
-                    <p>Curated flight of Speyside and Japanese malts paired with medium-bodied cigars for layered finishes.</p>
-                    <a class="ghost-button" href="mailto:contact@domenicoscigars.com">Request details</a>
-                </article>
-                <article class="event-card">
-                    <h3>Tasting Flight</h3>
-                    <small>By appointment</small>
-                    <p>Owner-led discovery of boutique factories, with palate coaching and custom journaling cards.</p>
-                    <a class="ghost-button" href="mailto:contact@domenicoscigars.com">Request details</a>
-                </article>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <div class="contact-grid">
-                <div>
-                    <p><strong>Address</strong><br>District 1, Ho Chi Minh City</p>
-                    <p><strong>Email</strong><br><a href="mailto:contact@domenicoscigars.com">contact@domenicoscigars.com</a></p>
-                    <p><strong>WhatsApp</strong><br>+84 90 000 1970</p>
-                    <p class="note">Opening planned for the coming years – this is a vision in progress.</p>
+          <div class="card-grid">
+            <div class="card">
+              <div class="card-title">Signature Line</div>
+              <div class="list">
+                <div class="list-row">
+                  <div class="list-label">Vegueros Entretiempos</div>
+                  <div class="list-meta">Short / Cuba</div>
                 </div>
-                <form>
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your name">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="your@email.com">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" placeholder="Share your interest or request."></textarea>
-                    <button type="submit" class="primary-button">Send</button>
-                </form>
+                <div class="list-row">
+                  <div class="list-label">Drew Estate Nasty Fritas</div>
+                  <div class="list-meta">Short / Nicaragua</div>
+                </div>
+                <div class="list-row">
+                  <div class="list-label">Drew Estate Papas Fritas</div>
+                  <div class="list-meta">Short / Nicaragua</div>
+                </div>
+              </div>
             </div>
-        </section>
+
+            <div class="card">
+              <div class="card-title">Price guidance</div>
+              <p>
+                Hier kannst du später z. B. ein Preisband definieren (&ldquo;Most cigars between xx–yy USD&rdquo;), ohne gleich alle Details zu verraten.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lounge / Buildout -->
+      <section id="lounge">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Lounge</div>
+            <h2 class="section-title">Design, layout & atmosphere</h2>
+            <p class="section-subtitle">
+              Kurzer Text zu deinem Buildout: maximal 30 Plätze, ruhige Lounge, Fokus auf Materials, Licht, Luftqualität und Sound.
+            </p>
+          </div>
+
+          <div class="columns">
+            <div class="card">
+              <div class="card-title">Atmosphere</div>
+              <p>
+                Hier später Stichworte zu Licht, Lautstärke, Musiklevel, Sitzkomfort, kleine Tische mit LV-Books etc. Du kannst auch ein Render-Bild hier einbinden.
+              </p>
+            </div>
+            <div class="card">
+              <div class="card-title">Technical comfort</div>
+              <p>
+                Kurze Info, dass auf Luftqualität (HVAC, Unterdruck, Filter) geachtet wird, ohne technisch zu tief einzusteigen – &ldquo;You will smell the cigars, not carry them home in your clothes.&rdquo;
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Events -->
+      <section id="events">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Events</div>
+            <h2 class="section-title">Small, curated gatherings</h2>
+            <p class="section-subtitle">
+              DC wird keine Massen-Events machen, sondern kleine Abende mit Fokus auf Tastings, Talks und ruhigen Begegnungen.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Coming soon</div>
+            <p>
+              Hier kannst du später 2–3 Beispiel-Eventformate nennen (z. B. &ldquo;Owners Selection Night&rdquo;, &ldquo;Beginner’s Flight&rdquo;, &ldquo;Paired Evenings&rdquo;). Für jetzt reicht ein Teaser.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact / Location -->
+      <section id="contact">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Contact</div>
+            <h2 class="section-title">Reach & find us</h2>
+            <p class="section-subtitle">
+              Die endgültige Adresse kommt später – du kannst hier erstmal Platzhalter drin lassen und dann einfach anpassen.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-block">
+              <div class="contact-label">Contact</div>
+              <div class="contact-value">
+                Email: <a href="mailto:hello@domenicos-cigars.com">hello@domenicos-cigars.com</a><br />
+                Phone / WhatsApp: +84 &mdash; tbd
+              </div>
+              <a href="mailto:hello@domenicos-cigars.com" class="contact-link">
+                <span>✉</span> Email us for future updates
+              </a>
+            </div>
+            <div class="contact-block">
+              <div class="contact-label">Location</div>
+              <div class="contact-value">
+                District 1, Ho Chi Minh City, Vietnam<br />
+                Exact address to be announced closer to opening.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <!-- Footer -->
     <footer>
-        © Domenico’s Cigars Saigon. Crafted with intention.
+      <div class="container footer-inner">
+        <div>&copy; <span id="year"></span> Domenico’s Cigars. All rights reserved.</div>
+        <div>Built with unreasonable attention to detail.</div>
+      </div>
     </footer>
+  </div>
+
+  <script>
+    // Current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Smooth scroll active state + mobile nav toggle
+    const header = document.querySelector(".header");
+    const desktopLinks = document.querySelectorAll(".nav a");
+    const mobileNav = document.querySelector(".nav-mobile");
+    const mobileLinks = document.querySelectorAll(".nav-mobile a");
+    const toggleBtn = document.querySelector(".nav-toggle");
+
+    // Toggle mobile nav
+    toggleBtn.addEventListener("click", () => {
+      const isOpen = mobileNav.style.display === "flex";
+      mobileNav.style.display = isOpen ? "none" : "flex";
+      toggleBtn.setAttribute("aria-expanded", String(!isOpen));
+    });
+
+    // Close mobile on click
+    mobileLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        mobileNav.style.display = "none";
+        toggleBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Highlight active menu item while scrolling
+    const sections = document.querySelectorAll("main section[id]");
+
+    function updateActiveNav() {
+      let currentId = null;
+      const offset = header.offsetHeight + 40;
+
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top - offset <= 0 && rect.bottom >= offset) {
+          currentId = section.id;
+        }
+      });
+
+      function setActive(links) {
+        links.forEach(link => {
+          if (link.getAttribute("href") === "#" + currentId) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
+        });
+      }
+
+      setActive(desktopLinks);
+      setActive(mobileLinks);
+    }
+
+    document.addEventListener("scroll", updateActiveNav, { passive: true });
+    window.addEventListener("load", updateActiveNav);
+  </script>
 </body>
 </html>
