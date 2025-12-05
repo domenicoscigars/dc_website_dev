@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Domenico's Cigars – Boutique Cigar Lounge in Saigon. A curated selection of fine cigars, spirits and quiet luxury." />
 
-  <!-- Fonts: EB Garamond for logo, Playfair for Headlines, Inter for Text -->
+  <!-- Fonts: Playfair Display for Logo & Headlines, Inter for Text -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600&family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -90,7 +90,7 @@
     }
 
     .brand-title {
-      font-family: "EB Garamond", serif;
+      font-family: "Playfair Display", serif;
       font-size: 20px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -118,11 +118,12 @@
       border-radius: 999px;
       color: var(--text-muted);
       border: 1px solid transparent;
-      transition: color 0.15s ease, background-color 0.15s ease;
+      transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
       white-space: nowrap;
     }
 
-    .nav a:hover {
+    .nav a:hover,
+    .nav a:focus-visible {
       color: var(--text-main);
       background-color: rgba(255,255,255,0.03);
       border-color: var(--border-subtle);
@@ -143,6 +144,7 @@
       border-radius: 999px;
       padding: 6px 10px;
       font-size: 11px;
+      text-transform: uppercase;
       letter-spacing: 0.18em;
       color: var(--text-muted);
       cursor: pointer;
@@ -179,7 +181,9 @@
 
     /* Sections */
 
-    main { flex: 1; }
+    main {
+      flex: 1;
+    }
 
     section {
       scroll-margin-top: calc(var(--header-height) + 16px);
@@ -201,8 +205,8 @@
 
     .hero-kicker {
       font-size: 11px;
-      letter-spacing: 0.22em;
       text-transform: uppercase;
+      letter-spacing: 0.22em;
       color: var(--text-muted);
       margin-bottom: 16px;
     }
@@ -221,6 +225,14 @@
       margin-bottom: 24px;
     }
 
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
     .pill {
       border-radius: 999px;
       border: 1px solid var(--border-subtle);
@@ -233,12 +245,14 @@
 
     /* Generic Section Styles */
 
-    .section-header { margin-bottom: 24px; }
+    .section-header {
+      margin-bottom: 24px;
+    }
 
     .section-kicker {
       font-size: 11px;
-      letter-spacing: 0.22em;
       text-transform: uppercase;
+      letter-spacing: 0.22em;
       color: var(--text-muted);
       margin-bottom: 8px;
     }
@@ -259,13 +273,14 @@
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
       gap: 24px;
+      align-items: flex-start;
     }
 
     .card {
       border-radius: 16px;
       border: 1px solid var(--border-subtle);
       background: linear-gradient(to bottom right, rgba(255,255,255,0.03), rgba(5,6,8,0.94));
-      padding: 16px;
+      padding: 16px 16px 14px;
       font-size: 13px;
       color: var(--text-muted);
     }
@@ -278,6 +293,12 @@
       margin-bottom: 6px;
     }
 
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
     .list {
       display: flex;
       flex-direction: column;
@@ -288,26 +309,33 @@
     .list-row {
       display: flex;
       justify-content: space-between;
+      gap: 8px;
       padding: 6px 0;
       border-bottom: 1px dashed var(--border-subtle);
-      gap: 8px;
     }
 
-    .list-label { color: var(--text-main); }
-    .list-meta { color: var(--text-muted); font-size: 12px; }
+    .list-label {
+      color: var(--text-main);
+    }
 
-    /* Contact */
+    .list-meta {
+      color: var(--text-muted);
+      font-size: 12px;
+      text-align: right;
+    }
+
+    /* Contact / Footer */
 
     .contact-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
       gap: 24px;
     }
 
     .contact-block {
       border-radius: 16px;
       border: 1px solid var(--border-subtle);
-      padding: 16px;
+      padding: 16px 16px 14px;
       font-size: 13px;
       color: var(--text-muted);
     }
@@ -316,6 +344,7 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.2em;
+      color: var(--text-muted);
       margin-bottom: 6px;
     }
 
@@ -330,14 +359,19 @@
       gap: 6px;
       margin-top: 10px;
       padding: 8px 12px;
+      font-size: 12px;
       border-radius: 999px;
       border: 1px solid var(--accent);
       background-color: var(--accent-soft);
-      font-size: 12px;
+      color: var(--text-main);
+    }
+
+    .contact-link span {
+      font-size: 14px;
     }
 
     footer {
-      padding: 20px 0 30px;
+      padding: 18px 0 28px;
       font-size: 11px;
       color: var(--text-muted);
     }
@@ -345,33 +379,61 @@
     footer .footer-inner {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
       border-top: 1px solid var(--border-subtle);
       padding-top: 12px;
-      flex-wrap: wrap;
-      gap: 12px;
+      margin-top: 16px;
     }
 
     /* Responsive */
 
     @media (max-width: 768px) {
-      .columns, .contact-grid { grid-template-columns: 1fr; }
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
 
-      .nav { display: none; }
-      .nav-toggle { display: inline-flex; }
+      .columns {
+        grid-template-columns: minmax(0, 1fr);
+      }
 
-      #hero { padding-top: 64px; padding-bottom: 64px; }
-      section { padding: 44px 0; }
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .section-header {
+        margin-bottom: 18px;
+      }
+
+      section {
+        padding: 44px 0;
+      }
+
+      #hero {
+        padding-top: 64px;
+        padding-bottom: 64px;
+      }
     }
 
     @media (min-width: 769px) {
-      .nav-mobile { display: none !important; }
+      .nav-mobile {
+        display: none !important;
+      }
     }
   </style>
 </head>
-
 <body>
   <div class="page">
-
     <!-- Header -->
     <header class="header">
       <div class="container header-inner">
@@ -379,8 +441,7 @@
           <div class="brand-title">DOMENICO’S CIGARS</div>
           <div class="brand-sub">SAIGON · EST. 2029</div>
         </div>
-
-        <nav class="nav">
+        <nav class="nav" aria-label="Main">
           <a href="#hero">Home</a>
           <a href="#about">About</a>
           <a href="#cigars">Cigars</a>
@@ -388,13 +449,14 @@
           <a href="#events">Events</a>
           <a href="#contact">Contact</a>
         </nav>
-
-        <button class="nav-toggle">Menu <span>☰</span></button>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+          Menu <span>☰</span>
+        </button>
       </div>
     </header>
 
     <!-- Mobile Nav -->
-    <nav class="nav-mobile">
+    <nav class="nav-mobile" aria-label="Mobile navigation">
       <div class="container">
         <a href="#hero">Home</a>
         <a href="#about">About</a>
@@ -405,8 +467,9 @@
       </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- Main Content -->
     <main>
+      <!-- Hero -->
       <section id="hero">
         <div class="container hero-inner">
           <div>
@@ -418,50 +481,48 @@
               Domenico’s Cigars wird eine kuratierte Zigarrenlounge im Herzen von Saigon – mit Fokus auf ruhige Abende, ehrliche Gespräche und eine kompakte, gut ausgewählte Cigar Selection.
             </p>
             <div class="hero-meta">
-              <span class="pill">Opening — Coming Soon</span>
+              <span class="pill">Opening &mdash; Coming Soon</span>
               <span class="pill">District 1 / HCMC</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ABOUT -->
+      <!-- About -->
       <section id="about">
         <div class="container">
           <div class="section-header">
             <div class="section-kicker">About</div>
             <h2 class="section-title">The idea behind Domenico’s Cigars</h2>
             <p class="section-subtitle">
-              Kurze Story über deinen Weg von der Schweiz nach Vietnam und warum DC mehr Lebensprojekt als Business wird.
+              Kurze Story über dich, deinen Weg von der Schweiz nach Vietnam und warum diese Lounge mehr Lebensprojekt als Business ist.
             </p>
           </div>
-
           <div class="columns">
             <div class="card">
               <div class="card-title">A personal project</div>
               <p>
-                Hier später: Motivation, Fokus auf Qualität statt Masse, warum DC bewusst nicht Restaurant + Bar + Lounge gleichzeitig sein will.
+                Hier kannst du später 2–3 kurze Absätze einsetzen: Deine Motivation, dein Fokus auf Qualität statt Masse und warum DC bewusst keine überladene Restaurant-Bar ist.
               </p>
             </div>
-
             <div class="card">
               <div class="card-title">Philosophy</div>
               <p>
-                Ruhe, respektvolle Lautstärke, Fokus auf Zigarren, ehrlicher Service, keine Show-Off-Kultur. Understatement & Quiet Luxury.
+                Stichworte: Ruhe, respektvolle Lautstärke, Fokus auf Zigarren, ehrlicher Service, keine Show-Off-Kultur. Dieser Text darf sehr knapp und präzise sein.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- CIGARS -->
+      <!-- Cigars -->
       <section id="cigars">
         <div class="container">
           <div class="section-header">
             <div class="section-kicker">Cigars</div>
             <h2 class="section-title">Signature & curated selection</h2>
             <p class="section-subtitle">
-              Eine kleine, gut ausgewählte Karte mit Fokus auf Qualität, nicht Quantität.
+              Hier kannst du später deine Signature Auswahl und eine Übersicht deiner Karte integrieren, ohne zu überladen.
             </p>
           </div>
 
@@ -471,15 +532,15 @@
               <div class="list">
                 <div class="list-row">
                   <div class="list-label">Vegueros Entretiempos</div>
-                  <div class="list-meta">Short · Cuba</div>
+                  <div class="list-meta">Short / Cuba</div>
                 </div>
                 <div class="list-row">
                   <div class="list-label">Drew Estate Nasty Fritas</div>
-                  <div class="list-meta">Short · Nicaragua</div>
+                  <div class="list-meta">Short / Nicaragua</div>
                 </div>
                 <div class="list-row">
                   <div class="list-label">Drew Estate Papas Fritas</div>
-                  <div class="list-meta">Short · Nicaragua</div>
+                  <div class="list-meta">Short / Nicaragua</div>
                 </div>
               </div>
             </div>
@@ -487,21 +548,21 @@
             <div class="card">
               <div class="card-title">Price guidance</div>
               <p>
-                Preisspanne folgt. Clean, transparent, ohne versteckte Überraschungen.
+                Hier kannst du später z. B. ein Preisband definieren (&ldquo;Most cigars between xx–yy USD&rdquo;), ohne gleich alle Details zu verraten.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- LOUNGE -->
+      <!-- Lounge / Buildout -->
       <section id="lounge">
         <div class="container">
           <div class="section-header">
             <div class="section-kicker">Lounge</div>
             <h2 class="section-title">Design, layout & atmosphere</h2>
             <p class="section-subtitle">
-              Maximal 30 Plätze. Fokus auf Ruhe, Licht, Materialität und Luftqualität.
+              Kurzer Text zu deinem Buildout: maximal 30 Plätze, ruhige Lounge, Fokus auf Materials, Licht, Luftqualität und Sound.
             </p>
           </div>
 
@@ -509,48 +570,47 @@
             <div class="card">
               <div class="card-title">Atmosphere</div>
               <p>
-                Gedämpftes Licht, ruhige Musik, hochwertige Sessel. Kleine Tische mit LV Travel Books als Signature Piece.
+                Hier später Stichworte zu Licht, Lautstärke, Musiklevel, Sitzkomfort, kleine Tische mit LV-Books etc. Du kannst auch ein Render-Bild hier einbinden.
               </p>
             </div>
-
             <div class="card">
               <div class="card-title">Technical comfort</div>
               <p>
-                Fokus auf Luftqualität (Unterdrucksystem), angenehme Temperatur, leises HVAC-System. „Smell the cigars, not carry them home.“
+                Kurze Info, dass auf Luftqualität (HVAC, Unterdruck, Filter) geachtet wird, ohne technisch zu tief einzusteigen – &ldquo;You will smell the cigars, not carry them home in your clothes.&rdquo;
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- EVENTS -->
+      <!-- Events -->
       <section id="events">
         <div class="container">
           <div class="section-header">
             <div class="section-kicker">Events</div>
             <h2 class="section-title">Small, curated gatherings</h2>
             <p class="section-subtitle">
-              Keine Massen-Events. Kleine Abende mit Seele.
+              DC wird keine Massen-Events machen, sondern kleine Abende mit Fokus auf Tastings, Talks und ruhigen Begegnungen.
             </p>
           </div>
 
           <div class="card">
             <div class="card-title">Coming soon</div>
             <p>
-              Geplante Formate: Owner’s Selection Night, Beginner’s Flights, Pairing Evenings. Sehr selektiv.
+              Hier kannst du später 2–3 Beispiel-Eventformate nennen (z. B. &ldquo;Owner’s Selection Night&rdquo;, &ldquo;Beginner’s Flight&rdquo;, &ldquo;Paired Evenings&rdquo;). Für jetzt reicht ein Teaser.
             </p>
           </div>
         </div>
       </section>
 
-      <!-- CONTACT -->
+      <!-- Contact / Location -->
       <section id="contact">
         <div class="container">
           <div class="section-header">
             <div class="section-kicker">Contact</div>
             <h2 class="section-title">Reach & find us</h2>
             <p class="section-subtitle">
-              Adresse folgt, sobald Buildout final bestätigt ist.
+              Die endgültige Adresse kommt später – du kannst hier erstmal Platzhalter drin lassen und dann einfach anpassen.
             </p>
           </div>
 
@@ -558,19 +618,18 @@
             <div class="contact-block">
               <div class="contact-label">Contact</div>
               <div class="contact-value">
-                Email: hello@domenicos-cigars.com<br />
-                WhatsApp: +84 (tbd)
+                Email: <a href="mailto:hello@domenicos-cigars.com">hello@domenicos-cigars.com</a><br />
+                Phone / WhatsApp: +84 &mdash; tbd
               </div>
               <a href="mailto:hello@domenicos-cigars.com" class="contact-link">
-                <span>✉</span> Email for updates
+                <span>✉</span> Email us for future updates
               </a>
             </div>
-
             <div class="contact-block">
               <div class="contact-label">Location</div>
               <div class="contact-value">
-                District 1, Ho Chi Minh City<br />
-                Exact address to be announced.
+                District 1, Ho Chi Minh City, Vietnam<br />
+                Exact address to be announced closer to opening.
               </div>
             </div>
           </div>
@@ -578,17 +637,17 @@
       </section>
     </main>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer>
       <div class="container footer-inner">
         <div>&copy; <span id="year"></span> Domenico’s Cigars. All rights reserved.</div>
         <div>Built with unreasonable attention to detail.</div>
       </div>
     </footer>
-
   </div>
 
   <script>
+    // Current year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
 
     const header = document.querySelector(".header");
@@ -604,15 +663,15 @@
       toggleBtn.setAttribute("aria-expanded", String(!isOpen));
     });
 
-    // Close mobile
+    // Close mobile on link click
     mobileLinks.forEach(link => {
       link.addEventListener("click", () => {
         mobileNav.style.display = "none";
-        toggleBtn.setAttribute("aria-expanded", "false"));
+        toggleBtn.setAttribute("aria-expanded", "false");
       });
     });
 
-    // Active link
+    // Highlight active menu item while scrolling
     const sections = document.querySelectorAll("main section[id]");
 
     function updateActiveNav() {
